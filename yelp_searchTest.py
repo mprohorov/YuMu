@@ -32,8 +32,9 @@ params = {
     'location': 'San Francisco',
     'lang': 'eng'
 }
-print(get_results(params))
-
+ret = get_results(params)
+ret = ret["businesses"]
+print ret
 """
 # read API keys
 with open('config_secret.json') as cred:
