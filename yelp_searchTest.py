@@ -2,9 +2,6 @@ import io
 import json
 
 import rauth as rauth
-from yelp.client import Client
-from yelp.oauth1_authenticator import Oauth1Authenticator
-
 
 def get_results(params):
     # Obtain these from Yelp's manage access page
@@ -32,12 +29,5 @@ params = {
     'location': 'San Francisco',
     'lang': 'eng'
 }
-print(get_results(params))
 
-"""
-# read API keys
-with open('config_secret.json') as cred:
-    creds = json.load(cred)
-    auth = Oauth1Authenticator(**creds)
-    client = Client(auth)
-"""
+print(get_results(params))
