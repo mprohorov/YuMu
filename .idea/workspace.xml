@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a9baa14-7b2e-46be-9e5d-72b62ac54b66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelp_searchTest.py" afterPath="$PROJECT_DIR$/yelp_searchTest.py" />
     </list>
     <ignored path="YuMu.iws" />
@@ -34,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yelp_searchTest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="yelp_searchTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yelp_searchTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="279">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -46,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createDB.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createDB.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createDB.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -121,12 +119,12 @@
         <option value="$PROJECT_DIR$/config_apikey.py" />
         <option value="$PROJECT_DIR$/config_secret.json" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/yelp_searchTest.py" />
         <option value="$PROJECT_DIR$/createDB.py" />
         <option value="$PROJECT_DIR$/runServer.py" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/runserver.py" />
+        <option value="$PROJECT_DIR$/yelp_searchTest.py" />
       </list>
     </option>
   </component>
@@ -640,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelp_searchTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -674,6 +662,16 @@
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yelp_searchTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

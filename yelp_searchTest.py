@@ -30,4 +30,14 @@ params = {
     'lang': 'eng'
 }
 
-print(get_results(params))
+ret = get_results(params)
+ret = ret["businesses"]
+print ret
+"""
+# read API keys
+with open('config_secret.json') as cred:
+    creds = json.load(cred)
+    auth = Oauth1Authenticator(**creds)
+    client = Client(auth)
+"""
+
