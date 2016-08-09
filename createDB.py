@@ -8,11 +8,16 @@ import pandas as pd
 s = "mysql+mysqldb://max:Gentech16@192.168.4.155:3306/YuMu_db"
 engine = create_engine(s)
 
-#Create column using pandas
+#Create columns using pandas
+
+def toTable():
+    
+
 df = pd.DataFrame({'test':[1, 2, 3]})
 
 #Create new test table
-#df.to_sql('testable', engine, if_exists='append', index= False)
+
+df.to_sql('testable', engine, if_exists='append', index= False)
 
 
 conn = engine.connect()
