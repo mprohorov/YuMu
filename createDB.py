@@ -10,8 +10,6 @@ engine = create_engine(s)
 
 #Create columns using pandas
 
-def toTable():
-    
 
 df = pd.DataFrame({'test':[1, 2, 3]})
 
