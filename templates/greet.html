@@ -4,14 +4,40 @@
 	<head>
 	    <link type="text/css" rel="stylesheet" href="/static/stylesheet.css" />
 	    <link rel="stylesheet" type="text/css" href="/static/lobster-font.css" />
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.0.2.min.js"></script>
 		<title>YuMu</title>
 	</head>
 	<body class="gradient">
+		<div id="result"> </div>
 	    <table>
     		<td><h1>YuMu</h3></td>
     		<td><img src="static/realcow.png" height= "50px" width="70px"></img></td>
     	</table>
-		<h2 style="text-align:center">Log In</h2>
-		<h2 style="text-align:center">Sign Up</h2>
+		<form>
+			<input type='text' name="number1"/>
+			<input type="text" name="number2"/>
+			<p><a href="javascript:void();" id="run" <b> Run </b></a> </p>
+		</form>
+
 	</body>
+	<script type=text/javascript>
+		$("a#run").click(function() {
+			var data = {}
+			data{'number1'} = $('input[name='number1']').val()
+			data{'number2'} = $('input[name='number2']').val()
+
+		$.ajax({
+			type: "GET",
+			url: "/_add_numbers",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['res']
+				$('#result').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
 </html>
