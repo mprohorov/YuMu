@@ -15,13 +15,15 @@ def index():
 #@app.route('signup')
 #def signup():
 #    return render_template('signup.html')
+
+@app.route('/_add_numbers', methods = ['POST'])
+def add_numbers():
+    #res = ast.literal_eval(request.json)
+    res = request.json
+    print res
+    number1 = int(res['number1'])
+    number2 = int(res['number2'])
+    return jsonify(res = (number1 + number2))
 IP = socket.gethostbyname(socket.gethostname())
 if __name__ == '__main__':
     app.run(host=IP, port=8901, threaded=True)
-
-@app.route('/_add_numbers')
-def add_numbers():
-    res = ast.literal_eval(request.args.keys()[0])
-    number1 = res['number1']
-    number2 = res['number2']
-    return jsonify(number1 + number2)

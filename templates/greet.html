@@ -2,9 +2,10 @@
 <html lang="en">
 <html>
 	<head>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	    <link type="text/css" rel="stylesheet" href="/static/stylesheet.css" />
 	    <link rel="stylesheet" type="text/css" href="/static/lobster-font.css" />
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.0.2.min.js"></script>
+
 		<title>YuMu</title>
 	</head>
 	<body class="gradient">
@@ -14,20 +15,20 @@
     		<td><img src="static/realcow.png" height= "50px" width="70px"></img></td>
     	</table>
 		<form>
-			<input type='text' name="number1"/>
-			<input type="text" name="number2"/>
-			<p><a href="javascript:void();" id="run" <b> Run </b></a> </p>
+			<input type='text' name="number1" id = "numero1"/>
+			<input type="text" name="number2" id = "numero2"/>
+			<p><a href="javascript:void();" id="run"> <b> Run </b></a> </p>
 		</form>
 
 	</body>
 	<script type=text/javascript>
 		$("a#run").click(function() {
-			var data = {}
-			data{'number1'} = $('input[name='number1']').val()
-			data{'number2'} = $('input[name='number2']').val()
+			var data = {};
+			data.number1 = document.getElementById("numero1").value;
+			data.number2 = document.getElementById("numero2").value;
 
 		$.ajax({
-			type: "GET",
+			type: "POST",
 			url: "/_add_numbers",
 			contentType: "application/json",
 			data: JSON.stringify(data),
