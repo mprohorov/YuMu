@@ -15,6 +15,9 @@ def index():
 #@app.route('signup')
 #def signup():
 #    return render_template('signup.html')
+@app.route('/ADAMSUCKS')
+def adamSucks():
+    return render_template('ADAMSUCKS.html')
 
 @app.route('/_add_numbers', methods = ['POST'])
 def add_numbers():
