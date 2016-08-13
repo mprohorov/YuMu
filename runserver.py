@@ -9,9 +9,9 @@ app.config.from_object(__name__)
 @app.route('/')
 def index():
     return render_template('greet.html')
-#@app.route('login')
-#def login():
-#    return render_template('login.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
 #@app.route('signup')
 #def signup():
 #    return render_template('signup.html')

@@ -33,6 +33,8 @@ params = {
 ret = get_results(params)
 ret = ret["businesses"]
 print ret
+for item in ret:
+    print item["name"]
 """
 # read API keys
 with open('config_secret.json') as cred:
