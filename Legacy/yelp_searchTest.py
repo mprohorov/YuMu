@@ -25,14 +25,13 @@ def get_results(params):
     return data
 
 params = {
-    'term': 'food',
-    'location': 'San Francisco',
-    'lang': 'eng'
+    'lang': 'eng',
+    'location': 'New York',
+    'sort': 2
 }
 
 ret = get_results(params)
 ret = ret["businesses"]
-print ret
 for item in ret:
     print item["name"]
 """
