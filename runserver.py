@@ -25,6 +25,26 @@ def add_numbers():
     number1 = int(res['number1'])
     number2 = int(res['number2'])
     return jsonify(res = (number1 + number2))
+@app.route('/home1', methods = ['POST'])
+def home1():
+    res = request.json
+    firstName = str(res['FirstName'])
+    lastName = str(res['LastName'])
+    email = str(res['Email'])
+    password = str(res['Password'])
+    phoneNumber = str(res['PhoneNumber'])
+    return jsonify(name = (firstName + lastName),
+                   email = email,
+                   password = password,
+                   phoneNumber = phoneNumber)
+@app.route('/home2', methods = ['POST'])
+def home2():
+    res = request.json
+    email = str(res['Email'])
+    password = str(res['Password'])
+    return jsonify(email = email,
+                   password = password)
+
 IP = socket.gethostbyname(socket.gethostname())
 if __name__ == '__main__':
     app.run(host=IP, port=8901, threaded=True)

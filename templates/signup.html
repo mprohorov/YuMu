@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <title>YuMu | Signup</title>
 
     <!-- Bootstrap core CSS -->
@@ -54,7 +54,7 @@
         	<input type="phone-number" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required>
         </div>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Get Started</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Get Started</button>
       </form>
 
     </div> <!-- /container -->
@@ -63,4 +63,26 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+	<script type=text/javascript>
+		$("button#submit").click(function() {
+			var data = {};
+			data.FirstName = document.getElementById("inputFirstName").value;
+			data.LastName = document.getElementById("inputLastName").value;
+            data.Email = document.getElementById("inputEmail").value;
+            data.Password = document.getElementById("inputPassword").value;
+            data.PhoneNumber = document.getElementById("inputNumber").value;
+		$.ajax({
+			type: "POST",
+			url: "/home1",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
 </html>
