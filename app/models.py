@@ -6,12 +6,13 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class account(Base):
-    __tablename__ = 'account_settings'
+    __table__ = Base.metadata.tables['account_settings']
 
-    user_id = Column(Integer, primary_key=True)
-    email = Column(String)
-    phone_number = Column(Integer)
-    first_name = Column(String)
-    last_name = Column(String)
-    zipcode = Column(Integer)
-    createdOn = Column(DateTime)
+    def is_active(self):
+        return True
+    def get_id(self):
+        return self.email
+    def is_authenticated(self):
+        return self.authenticated
+    def is_anonymous(self):
+        return False;

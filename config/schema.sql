@@ -1,22 +1,23 @@
 CREATE TABLE account_settings(
-  user_id INTEGER NOT NULL,
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
   email TEXT,
   phone_number INT,
   first_name TEXT,
   last_name TEXT,
   zipcode INT,
   created_on DATETIME
+  
 );
 
 CREATE TABLE phone_contacts(
-  user_id INTEGER NOT NULL,
+  user_id INT NOT NULL PRIMARY KEY,
   ymdh DATETIME,
   phone_number INT,
   name TEXT
 );
 
 CREATE TABLE default_pref(
-  user_id INT NOT NULL,
+  user_id INT NOT NULL PRIMARY KEY,
   ymdh DATETIME,
   default_minimum_budget INT NOT NULL,
   default_maximum_budget INT NOT NULL,
@@ -30,7 +31,7 @@ CREATE TABLE friends(
 );
 
 CREATE TABLE event_proposal(
-  event_id INT,
+  event_id INT AUTO_INCREMENT PRIMARY KEY,
   ymdh DATETIME,
   title TEXT,
   deadline INT,
