@@ -16,3 +16,7 @@ class account(Base):
         return self.authenticated
     def is_anonymous(self):
         return False;
+
+class preferences(Base):
+    __table__ = Base.metadata.tables['user_preferences']
+

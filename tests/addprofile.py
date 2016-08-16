@@ -3,17 +3,6 @@ from app import models
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 
-#Connection key
-s = "mysql+mysqldb://max:Gentech16@192.168.0.11:3306/yumu_db"
-engine = create_engine(s)
-
-#use  sqlalchemy to execute SQL commands
-"""
-conn = engine.connect()
-result = conn.execute("SELECT * FROM yumu_db.account_settings")
-"""
-
-conn = engine.connect()
 
 Base = models.Base
 Base.metadata.reflect(engine, extend_existing=True)
