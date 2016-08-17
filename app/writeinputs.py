@@ -1,9 +1,8 @@
 from app import models
 from app import dbconnect
 
-def createAccount(email, phone, fname, lname, zip, pw):
-    act = models.account(email = email, phone_number = phone, first_name = fname, last_name = lname,
-                   zipcode = zip, password = pw)
+def createAccount(email, phone, fname, lname, pw):
+    act = models.account(email = email, phone_number = phone, first_name = fname, last_name = lname, password = pw)
     dbconnect.session.add(act)
     dbconnect.session.commit()
 

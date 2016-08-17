@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from app import writeinputs
 import socket
 import ast
 
@@ -33,10 +34,13 @@ def home1():
     email = str(res['Email'])
     password = str(res['Password'])
     phoneNumber = str(res['PhoneNumber'])
+    writeinputs.createAccount(email, phoneNumber, firstName, lastName, password)
+    """
     return jsonify(name = (firstName + lastName),
                    email = email,
                    password = password,
                    phoneNumber = phoneNumber)
+    """
 @app.route('/home2', methods = ['POST'])
 def home2():
     res = request.json
