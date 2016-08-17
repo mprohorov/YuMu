@@ -1,11 +1,16 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
+from flask_login import login_user
 from app import writeinputs
+from app.auth.forms import LoginForm
+from app.models import account
 import socket
-import ast
 
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.secret_key = 's3cr3t'
+
+
 
 @app.route('/')
 def index():
@@ -16,9 +21,16 @@ def pref():
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
-@app.route('/signin')
+@app.route('/signin', methods = ['GET', 'POST'])
 def signin():
-    return render_template('signin.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = account.query.filter_by(email=form.email.data).first()
+        if user is not None and user.verify_password(form.password.data):
+            login_user(user, form.remember_me.data)
+            return redirect(request.args.get('next') or url_for('main.index'))
+        flash('Invalid username or password')
+    return render_template('signin.html', form=form)
 @app.route('/_add_numbers', methods = ['POST'])
 def add_numbers():
     res = request.json
