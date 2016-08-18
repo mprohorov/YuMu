@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
-from flask_login import login_user
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, g, make_response
+import flask_login
+from flask_login import login_user, LoginManager, current_user
+from flask_security import login_required
 from app import writeinputs
 from app.auth.forms import LoginForm
 from app.models import account
@@ -9,8 +11,16 @@ import socket
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = 's3cr3t'
+#lm = LoginManager()
+#lm.init_app(app)
 
-
+#@lm.user_loader
+#def load_user(user_id):
+#    user_id = user_id
+#    query the databasethat matches the user_id
+#@app.before_request
+#def before_request():
+#    g.user = current_user
 
 @app.route('/')
 def index():
