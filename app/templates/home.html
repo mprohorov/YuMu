@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hello,
+{% if current_user.is_authenticated() %}
+    {{current_user.firstName}}
+{% else %}
+    Stranger
+{% endif %}!}
+</body>
+</html>
