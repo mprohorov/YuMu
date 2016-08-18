@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-s = "mysql+mysqldb://max:Gentech16@148.4.117.98:3306/yumu_db"
+s = "mysql+mysqldb://max:Gentech16@10.6.254.56:3306/yumu_db"
 engine = create_engine(s)
 Session = sessionmaker()
 
