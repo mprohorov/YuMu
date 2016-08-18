@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, g, make_response
 import flask_login
 from flask_login import login_user, LoginManager, current_user
-from flask_security import login_required
+#from flask_security import login_required
 from app import writeinputs
 from app.auth.forms import LoginForm
 from app.models import account

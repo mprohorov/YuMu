@@ -33,7 +33,16 @@
   </head>
 
   <body>
+  {% extends "base.html" %}
+  {% import "boostrap/wtf.html" as wtf %}
 
+  {% block title%}Flasky - Login{%endblock%}
+
+  {% block page_content%}
+  <div> class = "col-md-4"
+  {{wtf.quick_form(form)}}
+  </div>
+  {% endblock %}
     <div class="container">
 
       <form class="form-sigin">
