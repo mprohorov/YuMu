@@ -1,15 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Hello,
-{% if current_user.is_authenticated() %}
-    {{current_user.firstName}}
-{% else %}
-    Stranger
-{% endif %}!}
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>YuMu | Signup</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/yumu.css">
+	
+	<!-- Lobster font import -->
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-home">
+      	<div class="row">
+  			<h1 class="form-home-logo">YuMu</h1>
+		</div>
+		
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#"><img class="create-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAB4UlEQVRoQ+2ZbU0EMRCG31MAKAAJSAAF4IDgAJQADpAACpAAEkABoIDLS7bJXTP9mk67vaT7i2S31+eZmX6ywYE/mwPnxxRYO4OjZuAcwNsSnEsAH6FAjSjg4I8X6B8AQYnRBM4AvANw8C7wQYnRBAj8DOBGKBlRYhQBlg2h7xfwmMTJrtwIArs1T/DbiMSvX15rC/gD1pWQJEH4C39GWlNAgnfV4WfiWoLnxyEBzgYPANgJ/655pMjF4CUJMnxKEJJAaCrTSGjhXV9PAO5iHUsCLwCuNLRem1p4seZ9LkngW1hISn26wIfGwJ9HazHQc2redZsVefexBGct0Ay+RwaawrcWaA7fUqALfCuBbvAtBGrh2T54+spdibWzkAU8j5F72+XUAmQ1jVrB8yRWtO5YCFjCxzaYYjIsBHK3HqEV1m/fPQP+mJEiFdseaMfcfz8WGUgJpPY2Qwuk4BnEYQVy4IcVyIUfQiC11qTer15CKcDU+yngR6gqIqlwC++r+rNYBxTMe02mwCyhyhoyLyH+I+GoEkrb/Kv0Lrbl1aJG4hUAb6Kzn9DlLs+lvbPA7QcPR+ItdMgodr3+uPzgaXY4dB+ybBgw3kIXwRcf33R8bVsVHd/aouh+fQro4mbXagtBTJcxMj0eAgAAAABJRU5ErkJggg==" width="48" height="48"></a>
+						</li>
+						<li>
+							<a class = "header-font" href="#">Create</a>
+						</li>
+						<li>
+							<a href="#"><img class="icon icons8-List" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAtUlEQVRoQ+2YUQrAIAxD9f6H3n43UQolqTRk3xptXqhlczT/ZvP7Dxdwm+COwLNc6kRpXVdVy+8+LqDK9s85+gQumJo/0m007x1mpwlgfMyrmEDeO8xOSQKehTDhOKrojxLtI0ROAFZesgthLSKrmQDZ4FDeBEKLyAskCbR/yFxAZewl/8yRDcTKS3YhrEVkNRMgGxzKm0BoEXmBJAGPEpWpkRwl2keInACsvGQXwlpEVmtP4AXEyyAx8ChKywAAAABJRU5ErkJggg==" width="48" height="48"></a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+
+		
+		
+        <h2 class="form-home-heading">Welcome back, John!</h2>
+		  
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Plan</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>

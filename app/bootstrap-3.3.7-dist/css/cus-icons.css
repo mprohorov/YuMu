@@ -1,0 +1,328 @@
+/* icons */
+[class^="cus-"],
+[class*=" cus-"] {
+  display: inline-block;
+  width: 17px;
+  height: 135px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("lifestyle-iconss.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+[class^="cus-"]:last-child,
+[class*=" cus-"]:last-child {
+  *margin-left: 0;
+}
+/* icons code below */
+.cus-accept{ background-position: 0 0;  } 
+.cus-add{ background-position: -21px 0;  } 
+.cus-anchor{ background-position: -42px 0;  } 
+.cus-application{ background-position: -63px 0;  } 
+
+.cus- {
+    background-image: url(lifestyle-iconss.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.cus--airplane {
+    width: 52px;
+    height: 53px;
+    background-position: 0px 0px;
+}
+
+.cus--alarm-clock {
+    width: 52px;
+    height: 53px;
+    background-position: -52px 0px;
+}
+
+.cus--backpack {
+    width: 52px;
+    height: 53px;
+    background-position: -104px 0px;
+}
+
+.cus--bed {
+    width: 52px;
+    height: 53px;
+    background-position: -157px 0px;
+}
+
+.cus--bicycle {
+    width: 52px;
+    height: 53px;
+    background-position: -209px 0px;
+}
+
+.cus--birthday {
+    width: 52px;
+    height: 53px;
+    background-position: -261px 0px;
+}
+
+.cus--book {
+    width: 52px;
+    height: 53px;
+    background-position: -313px 0px;
+}
+
+.cus--bowling {
+    width: 52px;
+    height: 53px;
+    background-position: -366px 0px;
+}
+
+.cus--breakfast {
+    width: 52px;
+    height: 53px;
+    background-position: -416px 0px;
+}
+
+.cus--buggy {
+    width: 52px;
+    height: 53px;
+    background-position: -470px 0px;
+}
+
+.cus--bus {
+    width: 52px;
+    height: 53px;
+    background-position: -522px 0px;
+}
+
+.cus--calendar {
+    width: 52px;
+    height: 53px;
+    background-position: -574px 0px;
+}
+
+.cus--camping {
+    width: 52px;
+    height: 53px;
+    background-position: -624px 0px;
+}
+
+.cus--cleaning {
+    width: 52px;
+    height: 53px;
+    background-position: -676px 0px;
+}
+
+.cus--clothes {
+    width: 52px;
+    height: 53px;
+    background-position: -732px 0px;
+}
+
+.cus--computer {
+    width: 52px;
+    height: 53px;
+    background-position: -782px 0px;
+}
+
+.cus--cooking {
+    width: 52px;
+    height: 53px;
+    background-position: -833px 0px;
+}
+
+.cus--cosmetics {
+    width: 52px;
+    height: 53px;
+    background-position: -886px 0px;
+}
+
+.cus--detergent {
+    width: 52px;
+    height: 53px;
+    background-position: -939px 0px;
+}
+
+.cus--dinner {
+    width: 52px;
+    height: 53px;
+    background-position: -992px 0px;
+}
+
+.cus--electric-guitar {
+    width: 52px;
+    height: 53px;
+    background-position: -1044px 0px;
+}
+
+.cus--garden {
+    width: 52px;
+    height: 53px;
+    background-position: -1096px 0px;
+}
+
+.cus--gymnastics {
+    width: 52px;
+    height: 53px;
+    background-position: -1157px 0px;
+}
+
+.cus--headphones {
+    width: 52px;
+    height: 53px;
+    background-position: -1209px 0px;
+}
+
+.cus--holiday {
+    width: 52px;
+    height: 53px;
+    background-position: -1264px 0px;
+}
+
+.cus--ice-cream {
+    width: 52px;
+    height: 53px;
+    background-position: -1312px 0px;
+}
+
+.cus--improvement {
+    width: 52px;
+    height: 53px;
+    background-position: -1365px 0px;
+}
+
+.cus--juice {
+    width: 52px;
+    height: 53px;
+    background-position: -1420px 0px;
+}
+
+.cus--karaoke {
+    width: 52px;
+    height: 53px;
+    background-position: -1470px 0px;
+}
+
+.cus--key {
+    width: 52px;
+    height: 53px;
+    background-position: -1522px 0px;
+}
+
+.cus--kite {
+    width: 52px;
+    height: 53px;
+    background-position: -1575px 0px;
+}
+
+.cus--list {
+    width: 52px;
+    height: 53px;
+    background-position: -1630px 0px;
+}
+
+.cus--mobile-phone {
+	width: 52px;
+    height: 53px;
+    background-position: -1682px 0px;
+}
+
+.cus--photo-camera {
+    width: 52px;
+    height: 53px;
+    background-position: -1735px 0px;
+}
+
+.cus--picnic {
+    width: 52px;
+    height: 53px;
+    background-position: -1787px 0px;
+}
+
+.cus--roller-skate {
+    width: 52px;
+    height: 53px;
+    background-position: -1838px 0px;
+}
+
+.cus--scooter {
+    width: 52px;
+    height: 53px;
+    background-position: -1892px 0px;
+}
+
+.cus--shirt {
+    width: 52px;
+    height: 53px;
+    background-position: -1943px 0px;
+}
+
+.cus--shopping-bag {
+    width: 52px;
+    height: 53px;
+    background-position: -1995px 0px;
+}
+
+.cus--shower {
+    width: 52px;
+    height: 53px;
+    background-position: -2048px 0px;
+}
+
+.cus--stove {
+    width: 52px;
+    height: 53px;
+    background-position: -2100px 0px;
+}
+
+.cus--suitcase {
+    width: 52px;
+    height: 53px;
+    background-position: -2154px 0px;
+}
+
+.cus--tablet {
+    width: 52px;
+    height: 53px;
+    background-position: -2208px 0px;
+}
+
+.cus--teeth-cleaning {
+    width: 52px;
+    height: 53px;
+    background-position: -2260px 0px;
+}
+
+.cus--television {
+    width: 52px;
+    height: 53px;
+    background-position: -2312px 0px;
+}
+
+.cus--toilet-paper {
+    width: 52px;
+    height: 53px;
+    background-position: -2366px 0px;
+}
+
+.cus--umbrellas {
+    width: 52px;
+    height: 53px;
+    background-position: -2425px 0px;
+}
+
+.cus--wallet {
+    width: 52px;
+    height: 53px;
+    background-position: -2476px 0px;
+}
+
+.cus--water {
+    width: 52px;
+    height: 53px;
+    background-position: -2529px 0px;
+}
+
+.cus--workplace {
+    width: 52px;
+    height: 53px;
+    background-position: -2582px 0px;
+}
