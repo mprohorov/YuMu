@@ -42,34 +42,96 @@
 		<h4 class="form-pref-ques">Activity?</h4>
 		
 		<div class="icon-group">
-			<button type="button" value="Active Life" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--bicycle"></i></button>
-			<button type="button" value="Arts & Entertainment" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--karaoke"></i></button>
-			<button type="button" value="Beauty & Spas" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--cosmetics"></i></button>
-			<button type="button" value="Education" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--book"></i></button>
-			<button type="button" value="Food" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--ice-cream"></i></button>
-			<button type="button" value="Nightlife" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--holiday"></i></button>
-			<button type="button" value="Restaurants" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--dinner"></i></button>
-			<button type="button" value="Shopping" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--shopping-bag"></i></button>
+			<button onclick = "toggleActive()" type="button" value="Active Life" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--bicycle"></i></button>
+			<button onclick = "toggleArts()" type="button" value="Arts & Entertainment" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--karaoke"></i></button>
+			<button onclick = "toggleBeautysvc()" type="button" value="Beauty & Spas" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--cosmetics"></i></button>
+			<button onclick = "toggleEducation()" type="button" value="Education" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--book"></i></button>
+			<button onclick = "toggleFood()" type="button" value="Food" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--ice-cream"></i></button>
+			<button onclick = "toggleNightlife()" type="button" value="Nightlife" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--holiday"></i></button>
+			<button onclick = "toggleRestaurants()" type="button" value="Restaurants" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--dinner"></i></button>
+			<button onclick = "toggleShopping()" type="button" value="Shopping" data-toggle="button" class="btn btn-default btn-icon"><i class="cus--shopping-bag"></i></button>
 		</div>
 		
 		<h4 class="form-pref-ques">Starting Location?</h4>
 	
 		<form>
   			<label for="company">
-    			<input type="max-cash" id="inputMaxCash" class="form-control" placeholder="Longitude" required autofocus>
+    			<input type="max-cash" id="longitude" class="form-control" placeholder="Longitude" required autofocus>
   			</label>
   			<label for="contact">
-    			<input type="max-cash" id="inputMaxCash" class="form-control" placeholder="Latitude" required autofocus>
+    			<input type="max-cash" id="latitude" class="form-control" placeholder="Latitude" required autofocus>
 			</label>
 		</form>	
 		<button type="button" class="btn btn-link">Set as current location</button>		
 		
-		<a href="prefs-two.html" class="btn btn-info btn-lg btn-primary btn-block" role="button">Next</a>
+		<a href="prefs-two.html" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit">Next</a>
 	
     </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+   	<script type = text/javascript>
+		var active = false;
+		var arts = false;
+		var beautysvc = false;
+		var education = false;
+		var food = false;
+		var nightlife = false;
+		var restaurants = false;
+		var shopping = false;
+
+		function toggleActive() {
+			active = !(active)
+		}
+		function toggleArts() {
+			arts = !(arts)
+		}
+		function toggleBeautysvc() {
+			beautysvc = !(beautysvc)
+		}
+		function toggleEducation() {
+			education = !(education)
+		}
+		function toggleFood() {
+			food = !(food)
+		}
+		function toggleNightlife() {
+			nightlife = !(nightlife)
+		}
+		function toggleRestaurants() {
+			restaurants = !(restaurants)
+		}
+		function toggleShopping() {
+			shopping = !(shopping)
+		}
+
+		$("a#submit").click(function() {
+			var data = {};
+			data.latitude = document.getElementById("latitude");
+			data.longitude = document.getElementById("longitude");
+			data.active = active;
+			data.arts = arts;
+			data.beautysvc = beautysvc;
+			data.education = education;
+			data.food = food;
+			data.nightlife = nightlife;
+			data.restaurants = restaurants;
+			data.shopping = shopping;
+			$.ajax({
+				type: "POST",
+				url: "/pref1info",
+				contentType: "application/json",
+				data: JSON.stringify(data),
+				success: function (data) {
+					var res = data['latitude']
+					$('.container').html(res)
+				},
+				error: function (data) {
+					$('#result').html('I failed')
+				}
+			})
+		})
+	</script>
   </body>
 </html>

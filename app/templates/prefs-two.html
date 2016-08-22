@@ -41,34 +41,79 @@
 	
 		<h4 class="form-pref-ques">How much would you like to spend?</h4>
 		<label for="inputMax" class="sr-only">Max</label>
-		<input type="max-cash" id="inputMaxCash" class="form-control" placeholder="Max $ to spend" required autofocus>
+		<input id = "maxCash" type="max-cash" id="inputMaxCash" class="form-control" placeholder="Max $ to spend" required autofocus>
 	
 		<h4 class="form-pref-ques">Time?</h4>
 	
 		<div class="dropdown">
-  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Start Time<span class="caret"></span></button>
-  			<ul class="dropdown-menu">
-    			<li><a href="#">2:00</a></li>
-    			<li><a href="#">3:00</a></li>
-    			<li><a href="#">4:00</a></li>
+  			<button onclick = "prefStartTime()" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Start Time<span class="caret"></span></button>
+  			<ul class="dropdown-menu" id = "startTimeDropdown">
+    			<li><a href = "#" onclick="setStartTime('2:00')">2:00</a></li>
+    			<li><a href = "#" onclick="setStartTime('3:00')">3:00</a></li>
+    			<li><a href = "#" onclick="setStartTime('4:00')">4:00</a></li>
   			</ul>
 		</div>
 		<div class="dropdown">
-  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">End Time<span class="caret"></span></button>
-  			<ul class="dropdown-menu">
-    			<li><a href="#">2:00</a></li>
-    			<li><a href="#">3:00</a></li>
-    			<li><a href="#">4:00</a></li>
+  			<button onclick = "prefEndTime()" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">End Time<span class="caret"></span></button>
+  			<ul class="dropdown-menu" id = "endTimeDropdown">
+    			<li><a href = "#" onclick="setEndTime('2:00')">2:00</a></li>
+    			<li><a href = "#" onclick="setEndTime('3:00')">3:00</a></li>
+    			<li><a href = "#" onclick="setEndTime('2:00')">4:00</a></li>
   			</ul>
 		</div>
 		
 		
-		<input type="submit" class="btn btn-info btn-lg btn-primary btn-block" value="Meet Up">
+	<button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Get Started</button>
 	
     </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type = text/javascript>
+		var startTime;
+		var endTime;
+		function setStartTime(number){
+			startTime = number;
+		}
+		function setEndTime(number){
+			endTime = number;
+		}
+		function prefStartTime() {
+			document.getElementById("startTimeDropdown").classList.toggle("show");
+		}
+		function prefEndTime() {
+			document.getElementById("endTimeDropdown").classList.toggle("show");
+		}
+		window.onclick = function(event) {
+  			if (!event.target.matches('.dropdown-toggle')) {
+    			if(document.getElementById("startTimeDropdown").classList.contains('show')){
+    				document.getElementById("startTimeDropdown").classList.remove('show');
+				}
+				else if(document.getElementById("endTimeDropdown").classList.contains('show')){
+					document.getElementById("endTimeDropdown").classList.remove('show');
+				}
+			}
+		}
+		$("button#submit").click(function() {
+			var data = {};
+			data.budget = document.getElementById("maxCash").value;
+			data.startTime = startTime;
+			data.endTime = endTime;
+			$.ajax({
+				type: "POST",
+				url: "/pref2info",
+				contentType: "application/json",
+				data: JSON.stringify(data),
+				success: function (data) {
+					var res = data['startTime']
+					$('.container').html(res)
+				},
+				error: function (data) {
+					$('#result').html('I failed')
+				}
+			})
+		})
+	</script>
   </body>
 </html>

@@ -58,3 +58,21 @@ def home2():
     password = str(res['Password'])
     return jsonify(email = email,
                    password = password)
+@main.routs('/pref1info', methods = ['POST'])
+def pref1info():
+    res = request.json
+    latitude = float(res["latitude"])
+    longitude = float(res["longitude"])
+    category = ""
+    listOfCat = ["active", "arts", "beautysvc", "education", "food", "nightlife", "restaurants", "shopping"]
+    for item in listOfCat:
+        if str(res[item]) == "true":
+            category += item
+    #do yo database thing on lat,long, and category
+@main.route('/pref2info', methods = ['POST'])
+def pref2info():
+    res = request.json
+    budget = int(res["budget"])
+    startTime = str(res["startTime"])
+    endTime = str(res["endTime"])
+    #do yo database thing on budget, start and endTime

@@ -103,7 +103,6 @@ input{
 
 .btn-primary{
 	display:inline-block;
-	margin-bottom: 7%;
 	margin-top: 7%;
 	box-shadow: 2px 2px 4px #000000;
 	color: black;
@@ -117,6 +116,7 @@ input{
     color: #fff;
     background-color: black;
     border-color: #285e8e; /*set the color you want here*/
+
 }
 
 .btn-link{
@@ -149,4 +149,21 @@ input{
 
 .icon-group{
 	text-align: center;
+}
+
+.dropdown{
+	position: relative;
+}
+
+.dropdown-menu{
+	display: none;
+	position: absolute;
+}
+
+.dropdown-menu a{
+	display: block;
+	text-decoration: none;
+}
+.show{
+	display:block;
 }
