@@ -17,11 +17,13 @@ class account(Base):
     def is_authenticated(self):
         return self.authenticated
     def is_anonymous(self):
-        return False;
+        return False
 
 class preferences(Base):
     __table__ = Base.metadata.tables['user_preferences']
 
+class times(Base):
+    __table__ = Base.metadata.tables['preferred_times']
 
 @__init__.lm.user_loader
 def load_user(user_id):

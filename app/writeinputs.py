@@ -12,13 +12,14 @@ def enterPrefs1(lat, long, cat):
     dbconnect.session.commit()
 
 def enterPrefs2(minb, maxb, startTime, endTime):
-    prefs = models.preferences(min_budget=minb, max_budget=maxb,
-                               startTime=start, endTime=end)
+    prefs = models.preferences(min_budget=minb, max_budget=maxb)
     dbconnect.session.add(prefs)
+    times = models.times(start_time = startTime, end_time = endTime)
+    dbconnect.session.add(times)
     dbconnect.session.commit()
 
 def getPrefs(eventId):
-    pref = models.preferences.query(prefs).filter(preferences.eventID == eventId)
-    return pref
+    prefs = models.preferences.query(prefs).filter(preferences.eventID == eventId)
+    return prefs
 
 

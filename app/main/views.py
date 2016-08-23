@@ -9,8 +9,8 @@ from app.models import account
 from . import main
 import rauth as rauth
 from yelp_searchTest import get_results
-
-
+from app import dbconnect
+from app import models
 @main.route('/')
 def index():
     return render_template('greeting.html')
@@ -88,7 +88,7 @@ def compromise():
     nightlife = 0;
     restaurant = 0;
     shopping = 0;
-    for item in session.query(preferences.category).all():
+    for item in dbconnect.session.query(models.preferences.category).all():
         if "active" in item:
             active += 1
         if "arts" in item:
@@ -109,7 +109,7 @@ def compromise():
     catList = ["active", "arts", "beauty", "education", "food", "nightlife", "restaurant", "shopping"]
     category_filter = catList[tempList.index(max(tempList))]
     budgetList = [0, 0, 0, 0]
-    for item in session.query(preferences.budget).all():
+    for item in dbconnect.session.query(models.preferences.budget).all():
         if item == "$":
             budgetList[0] += 1.5
         elif item == "$$":
@@ -120,9 +120,9 @@ def compromise():
     #hardcode location???
     startTimes = []
     endTimes = []
-    for item in session.query(preferences.startTime).all():
+    for item in dbconnect.session.query(models.times.startTime).all():
         startTimes.append(item)
-    for item in session.query(preferences.endTime).all():
+    for item in dbconnect.session.query(models.times.endTime).all():
         endTimes.append(item)
     compromiseTime = []
     compromiseTime.append(max(startTimes))
@@ -130,7 +130,7 @@ def compromise():
     params = {
         'lang': 'eng',
         'location': 'New York',
-        'sort': 2
+        'sort': 2,
         'category_filter': category_filter
     }
     ret = get_results(params)
