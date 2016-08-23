@@ -16,10 +16,21 @@ def index():
     return render_template('greeting.html')
 @main.route('/pref')
 def pref():
-    return render_template('pref.html')
+    return render_template('prefs-one.html')
 @main.route('/signup')
 def signup():
     return render_template('signup.html')
+@main.route('/signin')
+def signin():
+    return render_template('signin.html')
+@main.route('/home')
+def home():
+    return render_template('home.html')
+@main.route('/pref')
+def pref():
+    return render_template('pref-one.html')
+@main.route('/')
+'''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
     form = LoginForm()
@@ -30,6 +41,7 @@ def signin():
             return redirect(request.args.get('next') or url_for('home'))
         flash('Invalid username or password')
     return render_template('signin.html', form=form)
+'''''
 @main.route('/_add_numbers', methods = ['POST'])
 def add_numbers():
     res = request.json
@@ -153,3 +165,4 @@ def compromise():
     ret = ret['businesses']
     for item in ret:
         print item["name"]
+
