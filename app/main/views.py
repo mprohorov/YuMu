@@ -7,6 +7,8 @@ from app import writeinputs
 from app.auth.forms import LoginForm
 from app.models import account
 from . import main
+import rauth as rauth
+from yelp_searchTest import get_results
 
 
 @main.route('/')
@@ -75,6 +77,67 @@ def pref2info():
     budget = int(res["budget"])
     startTime = str(res["startTime"])
     endTime = str(res["endTime"])
-    #do yo database thing on budget, start and endTime
     writeinputs.enterPrefs2(budget, startTime, endTime)
+@main.route('/list')
+def compromise():
+    active = 0;
+    arts = 0;
+    beauty = 0;
+    education = 0;
+    food = 0;
+    nightlife = 0;
+    restaurant = 0;
+    shopping = 0;
+    for item in session.query(preferences.category).all():
+        if "active" in item:
+            active += 1
+        if "arts" in item:
+            arts += 1
+        if "beauty" in item:
+            beauty += 1
+        if "education" in item:
+            education += 1
+        if "food" in item:
+            food += 1
+        if "nightlife" in item:
+            nightlife += 1
+        if "restaurant" in item:
+            restaurant += 1
+        if "shopping" in item:
+            shopping += 1
+    tempList = [active, arts, beauty, education, food, nightlife, restaurant, shopping]
+    catList = ["active", "arts", "beauty", "education", "food", "nightlife", "restaurant", "shopping"]
+    category_filter = catList[tempList.index(max(tempList))]
+    budgetList = [0, 0, 0, 0]
+    for item in session.query(preferences.budget).all():
+        if item == "$":
+            budgetList[0] += 1.5
+        elif item == "$$":
+            budgetList[1] += 1.25
+        elif item == "$$$":
+            budgetList[2] += 1
+    budget = budgetList.index(max(budgetList)) + 1
+    #hardcode location???
+    startTimes = []
+    endTimes = []
+    for item in session.query(preferences.startTime).all():
+        startTimes.append(item)
+    for item in session.query(preferences.endTime).all():
+        endTimes.append(item)
+    compromiseTime = []
+    compromiseTime.append(max(startTimes))
+    compromiseTime.append(min(endTimes))
+    params = {
+        'lang': 'eng',
+        'location': 'New York',
+        'sort': 2
+        'category_filter': category_filter
+    }
+    ret = get_results(params)
+    ret = ret['businesses']
+    for item in ret:
+        print item["name"]
+
+
+
 

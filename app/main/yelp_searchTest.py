@@ -29,7 +29,6 @@ params = {
     'location': 'New York',
     'sort': 2
 }
-
 ret = get_results(params)
 ret = ret["businesses"]
 for item in ret:
