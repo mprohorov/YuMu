@@ -5,8 +5,8 @@ CREATE TABLE account_settings(
   first_name TEXT,
   last_name TEXT,
   zipcode INT,
-  created_on DATETIME
-  
+  created_on DATETIME,
+  password TEXT
 );
 
 CREATE TABLE phone_contacts(

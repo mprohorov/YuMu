@@ -78,6 +78,22 @@ def pref2info():
     startTime = str(res["startTime"])
     endTime = str(res["endTime"])
     writeinputs.enterPrefs2(budget, startTime, endTime)
+@main.route('/testlogin')
+def testlogin():
+    res = request.json
+    email = str(res['Email'])
+    password = str(res['Password'])
+    user = dbconnect.session.query(models.account).filter(models.account.email.like(email)).one()
+    if user != None:
+        if password == user.password:
+            user.authenticated = True
+            dbconnect.session.add(user)
+            dbconnect.session.commit()
+            flask_login.login_user(user, remember = True)
+            return redirect(url_for('home'))
+@main.route('/home')
+def home():
+    return render_template('home.html')
 @main.route('/list')
 def compromise():
     active = 0;
@@ -137,7 +153,3 @@ def compromise():
     ret = ret['businesses']
     for item in ret:
         print item["name"]
-
-
-
-
