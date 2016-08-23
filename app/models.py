@@ -10,8 +10,6 @@ Base.metadata.reflect(dbconnect.engine)
 
 class account(Base):
     __table__ = Base.metadata.tables['account_settings']
-
-
     def is_active(self):
         return True
     def get_id(self):
