@@ -29,6 +29,9 @@ def home():
 @main.route('/pref2')
 def pref2():
     return render_template('pref-one.html')
+@main.route('/create')
+def create():
+    return render_template('create.html')
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
