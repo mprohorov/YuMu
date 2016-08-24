@@ -14,8 +14,8 @@ from app import models
 @main.route('/')
 def index():
     return render_template('greeting.html')
-@main.route('/pref')
-def pref():
+@main.route('/pref1')
+def pref1():
     return render_template('prefs-one.html')
 @main.route('/signup')
 def signup():
@@ -26,10 +26,9 @@ def signin():
 @main.route('/home')
 def home():
     return render_template('home.html')
-@main.route('/pref')
-def pref():
+@main.route('/pref2')
+def pref2():
     return render_template('pref-one.html')
-@main.route('/')
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
@@ -103,19 +102,16 @@ def testlogin():
             dbconnect.session.commit()
             flask_login.login_user(user, remember = True)
             return redirect(url_for('home'))
-@main.route('/home')
-def home():
-    return render_template('home.html')
 @main.route('/list')
 def compromise():
-    active = 0;
-    arts = 0;
-    beauty = 0;
-    education = 0;
-    food = 0;
-    nightlife = 0;
-    restaurant = 0;
-    shopping = 0;
+    active = 0
+    arts = 0
+    beauty = 0
+    education = 0
+    food = 0
+    nightlife = 0
+    restaurant = 0
+    shopping = 0
     for item in dbconnect.session.query(models.preferences.category).all():
         if "active" in item:
             active += 1
