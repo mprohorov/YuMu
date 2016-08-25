@@ -13,7 +13,7 @@ from app import dbconnect
 from app import models
 @main.route('/')
 def index():
-    return render_template('greeting.html')
+    return render_template('index.html')
 @main.route('/pref1')
 def pref1():
     return render_template('prefs-one.html')

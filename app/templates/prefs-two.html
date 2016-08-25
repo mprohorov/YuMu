@@ -48,22 +48,32 @@
 		<div class="dropdown">
   			<button onclick = "prefStartTime()" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Start Time<span class="caret"></span></button>
   			<ul class="dropdown-menu" id = "startTimeDropdown">
-    			<li><a href = "#" onclick="setStartTime('2:00')">2:00</a></li>
-    			<li><a href = "#" onclick="setStartTime('3:00')">3:00</a></li>
-    			<li><a href = "#" onclick="setStartTime('4:00')">4:00</a></li>
+				<li onclick="setStartTime('9:00')">9:00</li>
+				<li onclick="setStartTime('10:00')">10:00</li>
+				<li onclick="setStartTime('11:00')">11:00</li>
+				<li onclick="setStartTime('12:00')">12:00</li>
+				<li onclick="setStartTime('1:00')">1:00</li>
+    			<li onclick="setStartTime('2:00')">2:00</li>
+    			<li onclick="setStartTime('3:00')">3:00</li>
+    			<li onclick="setStartTime('4:00')">4:00</li>
   			</ul>
 		</div>
 		<div class="dropdown">
   			<button onclick = "prefEndTime()" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">End Time<span class="caret"></span></button>
   			<ul class="dropdown-menu" id = "endTimeDropdown">
-    			<li><a href = "#" onclick="setEndTime('2:00')">2:00</a></li>
-    			<li><a href = "#" onclick="setEndTime('3:00')">3:00</a></li>
-    			<li><a href = "#" onclick="setEndTime('2:00')">4:00</a></li>
+				<li onclick="setEndTime('9:00')">9:00</li>
+				<li onclick="setEndTime('10:00')">10:00</li>
+				<li onclick="setEndTime('11:00')">11:00</li>
+				<li onclick="setEndTime('12:00')">12:00</li>
+				<li onclick="setEndTime('1:00')">1:00</li>
+    			<li onclick="setEndTime('2:00')">2:00</li>
+    			<li onclick="setEndTime('3:00')">3:00</li>
+    			<li onclick="setEndTime('4:00')">4:00</li>
   			</ul>
 		</div>
 		
-		
-	<button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Get Started</button>
+
+		<a href="home.html" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit">Return Home</a>
 	
     </div> <!-- /container -->
 
@@ -95,7 +105,7 @@
 				}
 			}
 		}
-		$("button#submit").click(function() {
+		$("a#submit").click(function() {
 			var data = {};
 			data.budget = document.getElementById("maxCash").value;
 			data.startTime = startTime;

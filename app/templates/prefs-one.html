@@ -62,7 +62,7 @@
     			<input type="max-cash" id="latitude" class="form-control" placeholder="Latitude" required autofocus>
 			</label>
 		</form>	
-		<button type="button" class="btn btn-link">Set as current location</button>		
+		<button type="button" class="btn btn-link" id = "currentLocation" >Set as current location</button>
 		
 		<a href="pref2" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit">Next</a>
 	
@@ -105,7 +105,10 @@
 		function toggleShopping() {
 			shopping = !(shopping)
 		}
-
+		$("button#currentLocation").click(function() {
+			document.getElementById('latitude').value = "40.7591041 N"
+			document.getElementById('longitude').value = "73.9817995 W"
+		})
 		$("a#submit").click(function() {
 			var data = {};
 			data.latitude = document.getElementById("latitude");
