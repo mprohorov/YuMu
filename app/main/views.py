@@ -21,15 +21,23 @@ def pref():
 def signup():
     return render_template('signup.html')
 @main.route('/signin', methods = ['GET', 'POST'])
+@main.route('/login', methods=['GET', 'POST'])
 def signin():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = account.query.filter_by(email=form.email.data).first()
-        if user is not None and user.verify_password(form.password.data):
-            login_user(user, form.remember_me.data)
-            return redirect(request.args.get('next') or url_for('home'))
-        flash('Invalid username or password')
-    return render_template('signin.html', form=form)
+    error = None
+    form = LoginForm(request.form)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = account.query.filter_by(name=request.form['username']).first()
+            if user is not None and bcrypt.check_password_hash(
+                user.password, request.form['password']
+            ):
+                login_user(user)
+                flash('You were logged in.')
+                return redirect(url_for('home.home'))
+
+            else:
+                error = 'Invalid username or password.'
+    return render_template('login.html', form=form, error=error)
 @main.route('/_add_numbers', methods = ['POST'])
 def add_numbers():
     res = request.json

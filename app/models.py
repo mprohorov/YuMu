@@ -10,6 +10,12 @@ Base.metadata.reflect(dbconnect.engine)
 
 class account(Base):
     __table__ = Base.metadata.tables['account_settings']
+
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = bcrypt.generate_password_hash(password)
+
     def is_active(self):
         return True
     def get_id(self):
