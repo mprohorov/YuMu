@@ -9,20 +9,34 @@ from app.models import account
 from . import main
 import rauth as rauth
 from yelp_searchTest import get_results
-
-
+from app import dbconnect
+from app import models
 @main.route('/')
 def index():
     return render_template('greeting.html')
-@main.route('/pref')
-def pref():
-    return render_template('pref.html')
+@main.route('/pref1')
+def pref1():
+    return render_template('prefs-one.html')
 @main.route('/signup')
 def signup():
     return render_template('signup.html')
+@main.route('/signin')
+def signin():
+    return render_template('signin.html')
+@main.route('/home')
+def home():
+    return render_template('home.html')
+@main.route('/pref2')
+def pref2():
+    return render_template('pref-one.html')
+@main.route('/create')
+def create():
+    return render_template('create.html')
+'''''
 @main.route('/signin', methods = ['GET', 'POST'])
 @main.route('/login', methods=['GET', 'POST'])
 def signin():
+<<<<<<< HEAD
     error = None
     form = LoginForm(request.form)
     if request.method == 'POST':
@@ -38,6 +52,8 @@ def signin():
             else:
                 error = 'Invalid username or password.'
     return render_template('login.html', form=form, error=error)
+'''''
+
 @main.route('/_add_numbers', methods = ['POST'])
 def add_numbers():
     res = request.json
@@ -86,17 +102,30 @@ def pref2info():
     startTime = str(res["startTime"])
     endTime = str(res["endTime"])
     writeinputs.enterPrefs2(budget, startTime, endTime)
+@main.route('/testlogin')
+def testlogin():
+    res = request.json
+    email = str(res['Email'])
+    password = str(res['Password'])
+    user = dbconnect.session.query(models.account).filter(models.account.email.like(email)).one()
+    if user != None:
+        if password == user.password:
+            user.authenticated = True
+            dbconnect.session.add(user)
+            dbconnect.session.commit()
+            flask_login.login_user(user, remember = True)
+            return redirect(url_for('home'))
 @main.route('/list')
 def compromise():
-    active = 0;
-    arts = 0;
-    beauty = 0;
-    education = 0;
-    food = 0;
-    nightlife = 0;
-    restaurant = 0;
-    shopping = 0;
-    for item in session.query(preferences.category).all():
+    active = 0
+    arts = 0
+    beauty = 0
+    education = 0
+    food = 0
+    nightlife = 0
+    restaurant = 0
+    shopping = 0
+    for item in dbconnect.session.query(models.preferences.category).all():
         if "active" in item:
             active += 1
         if "arts" in item:
@@ -117,7 +146,7 @@ def compromise():
     catList = ["active", "arts", "beauty", "education", "food", "nightlife", "restaurant", "shopping"]
     category_filter = catList[tempList.index(max(tempList))]
     budgetList = [0, 0, 0, 0]
-    for item in session.query(preferences.budget).all():
+    for item in dbconnect.session.query(models.preferences.budget).all():
         if item == "$":
             budgetList[0] += 1.5
         elif item == "$$":
@@ -128,9 +157,9 @@ def compromise():
     #hardcode location???
     startTimes = []
     endTimes = []
-    for item in session.query(preferences.startTime).all():
+    for item in dbconnect.session.query(models.times.startTime).all():
         startTimes.append(item)
-    for item in session.query(preferences.endTime).all():
+    for item in dbconnect.session.query(models.times.endTime).all():
         endTimes.append(item)
     compromiseTime = []
     compromiseTime.append(max(startTimes))
@@ -138,14 +167,11 @@ def compromise():
     params = {
         'lang': 'eng',
         'location': 'New York',
-        'sort': 2
+        'sort': 2,
         'category_filter': category_filter
     }
     ret = get_results(params)
     ret = ret['businesses']
     for item in ret:
         print item["name"]
-
-
-
 

@@ -3,8 +3,8 @@ body{
     height: inherit;
     margin: 0;
     padding: 0;
+    background: linear-gradient(#ff9966, #ffcc99);
     background: white;
-    background: linear-gradient(#ff9966, #ffcc99); 
     padding-top: 10%;
 }
 
@@ -103,6 +103,7 @@ input{
 
 .btn-primary{
 	display:inline-block;
+	margin-bottom: 7%;
 	margin-top: 7%;
 	box-shadow: 2px 2px 4px #000000;
 	color: black;
@@ -116,7 +117,6 @@ input{
     color: #fff;
     background-color: black;
     border-color: #285e8e; /*set the color you want here*/
-
 }
 
 .btn-link{
@@ -168,31 +168,26 @@ input{
 	display:block;
 }
 
-.event-title{
+input[type=event]{
 	text-align: center;
-	height: 60px;
-	font-size: 50px;
-	margin-bottom: 60%;
-	margin-top: 2%;
-	font-weight: 300;
-	background: none;
 	border: none;
-	color: black;
-	margin-bottom: 0%;
-}
+    border-radius: 4px;
+    color: black;
+    background: none;
+    border-bottom: black;
+    font-size: 300%;
+    height:inherit;
 
-.friends-list{
-	height: 40%;
 }
 
 .styled-select select {
-	background: transparent;
-	width: 268px;
-	padding: 5px;
-	font-size: 16px;
-	line-height: 1;
-	border: 0;
-	border-radius: 0;
-	height: 34px;
-	-webkit-appearance: none;
-}
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
