@@ -1,12 +1,12 @@
 CREATE TABLE account_settings(
   user_id INT AUTO_INCREMENT PRIMARY KEY,
-  email TEXT,
-  phone_number INT,
+  email VARCHAR(255),
+  phone_number VARCHAR(10),
   first_name TEXT,
   last_name TEXT,
   zipcode INT,
   created_on DATETIME,
-  password TEXT
+  password VARCHAR(20)
 );
 
 CREATE TABLE phone_contacts(
@@ -47,7 +47,7 @@ CREATE TABLE event_proposal(
 );
 
 CREATE TABLE user_preferences(
-  session_id INT NOT NULL,
+  event_id INT NOT NULL PRIMARY KEY,
   user_id INT NOT NULL,
   min_budget INT,
   max_budget INT,
