@@ -11,6 +11,7 @@ import rauth as rauth
 from yelp_searchTest import get_results
 from app import dbconnect
 from app import models
+
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -31,12 +32,13 @@ def pref2():
     return render_template('pref-one.html')
 @main.route('/create')
 def create():
+    event = models.event()
+    event_id = event.event_id
+    dbconnect.session.add(event)
     return render_template('create.html')
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
-@main.route('/login', methods=['GET', 'POST'])
 def signin():
-<<<<<<< HEAD
     error = None
     form = LoginForm(request.form)
     if request.method == 'POST':

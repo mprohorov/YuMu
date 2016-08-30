@@ -31,6 +31,9 @@ class preferences(Base):
 class times(Base):
     __table__ = Base.metadata.tables['preferred_times']
 
+class event(Base):
+    __table__ = Base.metadata.tables['event_proposal']
+
 @__init__.lm.user_loader
 def load_user(user_id):
     return account.query.get(int(user_id))

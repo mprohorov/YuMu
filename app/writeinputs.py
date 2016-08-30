@@ -1,10 +1,13 @@
 from app import models
 from app import dbconnect
 
+# Take inputs form frontend, write them into the Database
 def createAccount(email, phone, fname, lname, pw):
     act = models.account(email = email, phone_number = phone, first_name = fname, last_name = lname, password = pw)
     dbconnect.session.add(act)
     dbconnect.session.commit()
+
+def createEvent()
 
 def enterPrefs1(lat, long, cat):
     prefs = models.preferences(latitude=lat, longitude=long, category=cat)
@@ -18,8 +21,6 @@ def enterPrefs2(minb, maxb, startTime, endTime):
     dbconnect.session.add(times)
     dbconnect.session.commit()
 
-def getPrefs(eventId):
-    prefs = models.preferences.query(prefs).filter(preferences.eventID == eventId)
-    return prefs
+
 
 

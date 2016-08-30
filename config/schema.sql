@@ -60,7 +60,7 @@ CREATE TABLE user_preferences(
 );
 
 CREATE TABLE preferred_times(
-  user_id INT,
+  user_id INT PRIMARY KEY,
   event_id INT,
   start_time DATETIME,
   end_time DATETIME
