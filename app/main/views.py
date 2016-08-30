@@ -39,9 +39,12 @@ def create():
 @main.route('/newevent', methods = ['POST'])
 def newevent():
     res = request.json
-    date = str(res['date'])
-    title = str(res['title'])
-    deadline = str(res[])
+    date = str(res['Date'])
+    title = str(res['Title'])
+    deadline = str(res['Deadline'])
+    invitedFriends = []
+    for item in res['InvitedFriends']:
+        invitedFriends.append(str(item))
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
