@@ -32,7 +32,7 @@ def pref2():
     return render_template('pref-one.html')
 @main.route('/create')
 def create():
-    event = models.event()
+    event = writeinputs.createEvent()
     event_id = event.event_id
     dbconnect.session.add(event)
     return render_template('create.html')
@@ -41,7 +41,8 @@ def newevent():
     res = request.json
     date = str(res['date'])
     title = str(res['title'])
-    deadline = str(res[])
+    deadline = str(res['deadline'])
+    writeinputs.modifyEvent(1, date, deadline, title)
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
