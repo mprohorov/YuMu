@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/apetranovich/app/YuMu/')
+sys.path.append('/usr/lib/python2.7/site-packages')
+import flask
 import os
 import socket
 from app import create_app
