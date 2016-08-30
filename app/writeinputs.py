@@ -7,14 +7,9 @@ def createAccount(email, phone, fname, lname, pw):
     dbconnect.session.add(act)
     dbconnect.session.commit()
 
-def createEvent():
-    event = models.event()
+def createEvent(date, deadline, title):
+    event = models.event(ymdh=date, deadline=deadline, title=title)
     dbconnect.session.add(event)
-    dbconnect.session.commit()
-def modifyEvent(eventid, date, deadline, title):
-    dbconnect.session.query(models.event).\
-        filter(models.event.event_id == eventid).\
-        update({"ymdh":date, "deadline":deadline, "title":title})
     dbconnect.session.commit()
 
 def enterPrefs1(lat, long, cat):
