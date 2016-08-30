@@ -32,9 +32,6 @@ def pref2():
     return render_template('pref-one.html')
 @main.route('/create')
 def create():
-    event = models.event()
-    event_id = event.event_id
-    dbconnect.session.add(event)
     return render_template('create.html')
 @main.route('/newevent', methods = ['POST'])
 def newevent():
@@ -45,6 +42,7 @@ def newevent():
     invitedFriends = []
     for item in res['InvitedFriends']:
         invitedFriends.append(str(item))
+    writeinputs.createEvent(date, title, deadline)
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
