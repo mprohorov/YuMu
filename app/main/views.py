@@ -36,6 +36,12 @@ def create():
     event_id = event.event_id
     dbconnect.session.add(event)
     return render_template('create.html')
+@main.route('/newevent', methods = ['POST'])
+def newevent():
+    res = request.json
+    date = str(res['date'])
+    title = str(res['title'])
+    deadline = str(res[])
 '''''
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
@@ -71,7 +77,6 @@ def home1():
     email = str(res['Email'])
     password = str(res['Password'])
     phoneNumber = str(res['PhoneNumber'])
-    print(firstName)
     writeinputs.createAccount(email, phoneNumber, firstName, lastName, password)
     """
     return jsonify(name = (firstName + lastName),
