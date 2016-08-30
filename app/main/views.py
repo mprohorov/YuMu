@@ -8,7 +8,6 @@ from app.auth.forms import LoginForm
 from app.models import account
 from . import main
 import rauth as rauth
-from yelp_searchTest import get_results
 from app import dbconnect
 from app import models
 @main.route('/')
