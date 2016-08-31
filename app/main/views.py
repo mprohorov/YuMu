@@ -8,7 +8,11 @@ from app.auth.forms import LoginForm
 from app.models import account
 from . import main
 import rauth as rauth
+<<<<<<< Updated upstream
 from yelp_searchTest import get_results
+=======
+from .. import yelpquery
+>>>>>>> Stashed changes
 from app import dbconnect
 from app import models
 
@@ -29,7 +33,11 @@ def home():
     return render_template('home.html')
 @main.route('/pref2')
 def pref2():
+<<<<<<< Updated upstream
     return render_template('pref-one.html')
+=======
+    return render_template('prefs-two.html')
+>>>>>>> Stashed changes
 @main.route('/create')
 def create():
     return render_template('create.html')
@@ -178,7 +186,7 @@ def compromise():
         'sort': 2,
         'category_filter': category_filter
     }
-    ret = get_results(params)
+    ret = yelpquery.get_results(params)
     ret = ret['businesses']
     for item in ret:
         print item["name"]
