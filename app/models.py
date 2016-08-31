@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/usr/lib/python2.7/site-packages')
+
 from sqlalchemy import Column, Integer, String, DateTime, engine
 from sqlalchemy import create_engine
 from app import dbconnect

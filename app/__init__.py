@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/usr/lib/python2.7/site-packages')
 from flask import Flask
 
 from flask_bootstrap import Bootstrap

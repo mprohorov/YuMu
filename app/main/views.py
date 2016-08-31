@@ -27,7 +27,7 @@ def home():
     return render_template('home.html')
 @main.route('/pref2')
 def pref2():
-    return render_template('pref-one.html')
+    return render_template('prefs-one.html')
 @main.route('/create')
 def create():
     return render_template('create.html')
