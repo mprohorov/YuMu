@@ -1,18 +1,9 @@
-
-from flask import render_template, request, jsonify, redirect, url_for, flash, g, make_response
 import flask_login
-from flask_login import login_user, LoginManager, current_user
-#from flask_security import login_required
-from app import writeinputs
-from app.auth.forms import LoginForm
-from app.models import account
+from flask import render_template, request, jsonify, redirect, url_for
+
+from app.main import writeinputs
 from . import main
-import rauth as rauth
-<<<<<<< Updated upstream
-from yelp_searchTest import get_results
-=======
-from .. import yelpquery
->>>>>>> Stashed changes
+from yelpquery import get_results
 from app import dbconnect
 from app import models
 
@@ -33,11 +24,7 @@ def home():
     return render_template('home.html')
 @main.route('/pref2')
 def pref2():
-<<<<<<< Updated upstream
-    return render_template('pref-one.html')
-=======
     return render_template('prefs-two.html')
->>>>>>> Stashed changes
 @main.route('/create')
 def create():
     return render_template('create.html')
@@ -186,7 +173,7 @@ def compromise():
         'sort': 2,
         'category_filter': category_filter
     }
-    ret = yelpquery.get_results(params)
+    ret = get_results(params)
     ret = ret['businesses']
     for item in ret:
         print item["name"]
