@@ -148,7 +148,7 @@ input{
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #262626;
-    border-color: #262626;
+    border-color: #262626; 
 }
 
 .btn-link{
@@ -193,7 +193,7 @@ input[type=event]{
     border-bottom: black;
     font-size: 300%;
     height:inherit;
-
+	
 }
 
 .styled-select select {
@@ -216,8 +216,8 @@ input[type="signup"]
   	box-shadow: hidden;
   	color: black;
   	padding: 4px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
 }
 
 input[type="signin"]
@@ -227,7 +227,7 @@ input[type="signin"]
   	border-bottom: 1px solid white;
   	box-shadow: hidden;
   	color: black;
-
+  	
 }
 
 .form-results-heading{
@@ -299,8 +299,8 @@ button[type="activity"]
   	box-shadow: hidden;
   	color: black;
   	padding: 4px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
 }
 .dropdown{
 	position: relative;

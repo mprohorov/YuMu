@@ -37,11 +37,14 @@
     <div class="container">
 
       <form class="form-signup">
-  		<h1 class="form-signup-logo">YuMu</h1>
-		
+      	<a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow" aria-hidden="true"></span></a>
+  		<div class="signup-logo">
+			<center><img src="logo.png" alt="YuMu Logo" width="50%" height="inherit"></center>
+		</div>
+
         <h4 class="form-signup-heading">Sign up and start planning with your friends!</h4>
-        
-        <div class="signup">
+
+        <div class="signup-inputs">
         	<label for="inputFirstName" class="sr-only">First Name</label>
         	<input type="first-name" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus>
         	<label for="inputLastName" class="sr-only">Last Name</label>
@@ -53,7 +56,9 @@
         	<label for="inputNumber" class="sr-only">Phone Number</label>
         	<input type="phone-number" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required>
         </div>
+
         <a href="home" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit">Sign Up</a>
+        <p class="terms">By sign in, I accept <em>Terms of Service</em> and <em>Privacy Policy</em></p>
       </form>
 
     </div> <!-- /container -->

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <title>YuMu | Create</title>
 
     <!-- Bootstrap core CSS -->
@@ -17,8 +17,8 @@
 	<!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/yumu.css">
-	<link rel="stylesheet" type="text/css" href="css/cus-icons.css">
-	
+	<link rel="stylesheet" type="text/css" href="/static/css/cus-icons.css">
+
 	<!-- Lobster font import -->
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
@@ -40,9 +40,9 @@
 	<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
 	<!-- Inline CSS based on choices in "Settings" tab -->
-	<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>    
-	  
-  
+	<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
         rel="stylesheet" type="text/css" />
@@ -56,31 +56,31 @@
             $('#friends-list').multiselect({
                 includeSelectAllOption: true
             });
-           
+
         });
     </script>
-    
+
 	<div class="container">
 		<input type="event" id="inputEvent" class="form-control" placeholder="Event Title" required autofocus>
-	
+
 		<h4 class="form-pref-ques">Who's Coming?</h4>
-		
+
 		<select id="friends-list" multiple="multiple">
-			<option value="Friend 1">Adam</option>
-			<option value="Friend 2">Ami</option>
-			<option value="Friend 3">Amy</option>
-			<option value="Friend 4">Bill</option>
-			<option value="Friend 5">Brian L.</option>
-			<option value="Friend 6">Brian D.</option>
-			<option value="Friend 7">Harsh</option>
-			<option value="Friend 8">Jillian</option>
-			<option value="Friend 9">Maria</option>
-			<option value="Friend 10">Max</option>
-			<option value="Friend 11">Nick</option>
-			<option value="Friend 12">Plai</option>
-			<option value="Friend 13">Adam</option>
-    	</select>    
-		
+			<option value="Adam">Adam</option>
+			<option value="Ami">Ami</option>
+			<option value="Amy">Amy</option>
+			<option value="Bill">Bill</option>
+			<option value="Brian L.">Brian L.</option>
+			<option value="Brian D.">Brian D.</option>
+			<option value="Harsh">Harsh</option>
+			<option value="Jillian">Jillian</option>
+			<option value="Maria">Maria</option>
+			<option value="Max">Max</option>
+			<option value="Nick">Nick</option>
+			<option value="Plai">Plai</option>
+			<option value="Adam">Adam</option>
+    	</select>
+
 		<h4 class="form-pref-ques">What day is the event happening?</h4>
 
 		 <div class="container-fluid">
@@ -108,23 +108,23 @@
 		   </div>
 		  </div>
 		 </div>
-		
-				
+
+
 		<h4 class="form-pref-ques">When are responses due?</h4>
-		
+
 		<div class="container-fluid">
 		  <div class="row">
 		   <div class="col-md-6 col-sm-6 col-xs-12">
 			<form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
 			 <div class="form-group ">
-			  <label class="control-label col-sm-2 requiredField" for="date"></label>
+			  <label class="control-label col-sm-2 requiredField" for="deadline"></label>
 			  <div class="col-sm-10">
 			   <div class="input-group">
 				<div class="input-group-addon">
 				 <i class="fa fa-calendar">
 				 </i>
 				</div>
-				<input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+				<input class="form-control" id="deadline" name="date" placeholder="MM/DD/YYYY" type="text"/>
 			   </div>
 			  </div>
 			 </div>
@@ -137,10 +137,8 @@
 		   </div>
 		  </div>
 		 </div>
-		
-		<a href="pref1" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit">Input Preferences</a>
-		
-	
+		<a href="/pref1" id = "submit" class="btn btn-info btn-lg btn-primary btn-block" role="button">Indicate Preferences</a>
+
     </div> <!-- /container -->
 
 
@@ -152,7 +150,7 @@
 			$('#example-getting-started').multiselect();
 		});
 	</script>
-	
+
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
@@ -169,6 +167,27 @@
 			})
 		})
 	</script>
-	
+	<script type= text/javascript>
+		$("a#submit").click(function() {
+			var multipleValues = $("#friends-list").val();
+			var data = {};
+			data.InvitedFriends = multipleValues;
+            data.Date = document.getElementById("date").value;
+			data.Deadline = document.getElementById("deadline").value;
+			data.Title = document.getElementById("inputEvent").value;
+		$.ajax({
+			type: "POST",
+			url: "/newevent",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
   </body>
 </html>
