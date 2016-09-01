@@ -1,18 +1,36 @@
+html, body {
+     height: 100%;
+}
+
+
 body{
     width: inherit;
     height: inherit;
     margin: 0;
     padding: 0;
-    background: linear-gradient(#ff9966, #ffcc99);
     background: white;
+    background: linear-gradient(#d283de, #9e29bc);
     padding-top: 10%;
+    background-attachment:fixed;
 }
-
 
 ul{
 	margin-left: auto;
     margin-right: auto;
 }
+
+.greeting-logo{
+	margin-top: 23%;
+	margin-bottom: 5%;
+}
+
+.greeting-tagline{
+	margin: none;
+	color: #262626;
+	font-weight: 200;
+	font-size: 100%
+}
+
 .form-greeting-logo{
 	font-family: 'Lobster', sans-serif;
 	text-align: center;
@@ -32,22 +50,37 @@ ul{
 
 .form-signup-heading{
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 5%;
 	margin-bottom: 10%;
+	font-weight: 200;
+	font-size: 110%
+}
+
+.terms{
+	color: #f4f4f4;
+	font-size:small;
+	font-weight:100;
+}
+
+.terms em{
+	color: white;
+}
+
+.signup-inputs{
+	background: Transparent;
 }
 
 .form-signin-logo{
-	font-family: 'Lobster', sans-serif;
-	text-align: center;
-	font-size: 300%;
 	color: black;
-	margin-top: 15%;
+	margin-top: 20%;
 }
 
 .form-signin-heading{
 	text-align: center;
 	margin-bottom: 20%;
 	margin-top: 10%;
+	font-weight: 200;
+	font-size:110%;
 }
 
 .form-home-logo{
@@ -103,27 +136,28 @@ input{
 
 .btn-primary{
 	display:inline-block;
+	margin-bottom: 2%;
 	margin-top: 7%;
-	box-shadow: 2px 2px 4px #000000;
-	color: black;
-	background-color: white;
-	border-radius: 24px;
-	border-color: black;
-	border-width: 2px;
+	font-weight: 200;
+	color: #262626;
+	background-color: Transparent;
+	border-color: white;
+	width: 80%;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: black;
-    border-color: #285e8e; /*set the color you want here*/
+    background-color: #262626;
+    border-color: #262626;
 }
 
 .btn-link{
 	color: black;
 }
 
-.current-location{
-
+.btn-color{
+	background-color: #ffe4cc;
+	border-color: #ffcc99;
 }
 
 .form-control:focus {
@@ -150,23 +184,6 @@ input{
 	text-align: center;
 }
 
-.dropdown{
-	position: relative;
-}
-
-.dropdown-menu{
-	display: none;
-	position: absolute;
-}
-
-.dropdown-menu a{
-	display: block;
-	text-decoration: none;
-}
-.show{
-	display:block;
-}
-
 input[type=event]{
 	text-align: center;
 	border: none;
@@ -189,4 +206,116 @@ input[type=event]{
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
-   }
+}
+
+input[type="signup"]
+{
+    background: transparent;
+    border: none;
+  	border-bottom: 1px solid white;
+  	box-shadow: hidden;
+  	color: black;
+  	padding: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="signin"]
+{
+    background: transparent;
+    border: none;
+  	border-bottom: 1px solid white;
+  	box-shadow: hidden;
+  	color: black;
+
+}
+
+.form-results-heading{
+	text-align: center;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	font-weight: 200;
+	font-size:150%;
+}
+
+.form-results-dir{
+	text-align: center;
+	margin-bottom: 10%;
+	margin-top: 10%;
+	font-weight: 200;
+	font-size:110%;
+}
+
+div.op{
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	padding-left: 2%;
+	border: 1px solid black;
+}
+
+h4.op{
+	font-weight: 200;
+	float:left;
+}
+
+.promoted{
+	font: italic bold 12px/30px Arial, serif;
+	color: white;
+	font-size: 100%;
+}
+
+.op-check{
+	float:right;
+}
+
+p.op{
+	font-weight: 200;
+}
+
+.form-home-heading{
+	font-weight: 200;
+}
+
+.form-home-label{
+	font-weight: 200;
+	text-align: center;
+}
+
+div.outings-list{
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	padding-left: 2%;
+	border: 2px dotted black;
+	background-color: #ffe4cc;
+}
+
+button[type="activity"]
+{
+    background: transparent;
+    border: none;
+  	border-bottom: 1px solid white;
+  	box-shadow: hidden;
+  	color: black;
+  	padding: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.dropdown{
+	position: relative;
+}
+
+.dropdown-menu{
+	display: none;
+	position: absolute;
+}
+
+.dropdown-menu a{
+	display: block;
+	text-decoration: none;
+	margin-bottom: 0%;
+}
+.show{
+	display:block;
+}
