@@ -33,12 +33,21 @@ def newevent():
     res = request.json
     date = str(res['Date'])
     title = str(res['Title'])
+<<<<<<< Updated upstream
     deadline = str(res['Deadline'])
     invitedFriends = []
     for item in res['InvitedFriends']:
         invitedFriends.append(str(item))
     writeinputs.createEvent(date, title, deadline)
 '''''
+=======
+    invitedFriends = []
+    for item in res['InvitedFriends']:
+        invitedFriends.append(str(item))
+    print(title)
+    writeinputs.createEvent(ymdh, deadline, title)
+"""
+>>>>>>> Stashed changes
 @main.route('/signin', methods = ['GET', 'POST'])
 def signin():
     error = None
