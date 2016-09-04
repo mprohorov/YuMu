@@ -8,8 +8,7 @@ body{
     height: inherit;
     margin: 0;
     padding: 0;
-    background: white;
-    background: linear-gradient(#d283de, #9e29bc);
+    background: linear-gradient(#99ddff, #0099e6);
     padding-top: 10%;
     background-attachment:fixed;
 }
@@ -17,6 +16,10 @@ body{
 ul{
 	margin-left: auto;
     margin-right: auto;
+}
+
+.open .dropdown-menu{
+	display:block;
 }
 
 .greeting-logo{
@@ -106,7 +109,7 @@ ul{
 }
 
 .form-pref-ques{
-	text-align: left;
+	text-align: center;
 	font-size: 150%;
 	margin-bottom: 5%;
 	margin-top: 10%;
@@ -142,22 +145,24 @@ input{
 	color: #262626;
 	background-color: Transparent;
 	border-color: white;
-	width: 80%;
+	width: 70%;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #262626;
-    border-color: #262626; 
+    border-color: #262626;
 }
 
 .btn-link{
 	color: black;
+	font-weight: 200;
+	text-align: center;
 }
 
 .btn-color{
-	background-color: #ffe4cc;
-	border-color: #ffcc99;
+	background-color: #66ccff;
+	border-color: white;
 }
 
 .form-control:focus {
@@ -185,15 +190,19 @@ input{
 }
 
 input[type=event]{
+	margin-top: 10%;
 	text-align: center;
-	border: none;
-    border-radius: 4px;
     color: black;
     background: none;
     border-bottom: black;
     font-size: 300%;
     height:inherit;
-	
+	border: 1px solid black;
+}
+
+.dropdown-menu{
+	margin-bottom: 0%;
+
 }
 
 .styled-select select {
@@ -216,8 +225,28 @@ input[type="signup"]
   	box-shadow: hidden;
   	color: black;
   	padding: 4px;
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+	color: #eeeeee !important;
+	font-weight: 200;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+	color: #eeeeee !important;
+	font-weight: 200;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+	color: #eeeeee !important;
+	font-weight: 200;
+}
+
+input:-ms-input-placeholder {
+	color: #eeeeee !important;
+	font-weight: 200;
 }
 
 input[type="signin"]
@@ -227,7 +256,7 @@ input[type="signin"]
   	border-bottom: 1px solid white;
   	box-shadow: hidden;
   	color: black;
-  	
+
 }
 
 .form-results-heading{
@@ -257,20 +286,30 @@ div.op{
 h4.op{
 	font-weight: 200;
 	float:left;
+	color: #eeeeee;
+	font: bold;
+	border-bottom: 1px dashed #eeeeee;
 }
 
 .promoted{
 	font: italic bold 12px/30px Arial, serif;
 	color: white;
 	font-size: 100%;
+	text-align: right;
+	margin-right: 3%;
+
 }
 
 .op-check{
-	float:right;
+	float: right;
+	margin-right: 2%;
 }
 
 p.op{
 	font-weight: 200;
+	color: #eeeeee;
+	padding: none;
+	margin-right: 10%;
 }
 
 .form-home-heading{
@@ -286,36 +325,102 @@ div.outings-list{
 	margin-left: 2%;
 	margin-right: 2%;
 	margin-bottom: 2%;
+	margin-top: 2%;
 	padding-left: 2%;
-	border: 2px dotted black;
-	background-color: #ffe4cc;
+	border: 1px solid black;
+	background-color: #f2f2f2(0.5, 0.5, 0.5, 0.5);
 }
 
+p.outings-list{
+	font-weight: 200;
+	color: #262626;
+	padding: none;
+}
+
+h4.outings-list{
+	font-weight: 200;
+	float:left;
+	color: #262626;
+	font: bold;
+	border-bottom: 1px dashed #eeeeee;
+}
+
+
 button[type="activity"]
+{
+    background: #eeeeee;
+    border: none;
+  	border-bottom: 1px solid white;
+  	box-shadow: hidden;
+  	color: black;
+  	margin: none;
+  	padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="password"]
 {
     background: transparent;
     border: none;
   	border-bottom: 1px solid white;
   	box-shadow: hidden;
   	color: black;
-  	padding: 4px;
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-}
-.dropdown{
-	position: relative;
 }
 
-.dropdown-menu{
-	display: none;
-	position: absolute;
+
+label.activity{
+	font-weight: 200;
 }
 
-.dropdown-menu a{
-	display: block;
-	text-decoration: none;
-	margin-bottom: 0%;
+
+p.deco{
+	font-size: 90%;
+	color: #eeeeee;
+	font-weight: 200;
+	text-align: right;
 }
-.show{
-	display:block;
+
+.form-waiting-logo{
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+.form-waiting-heading{
+	text-align: center;
+	margin: 15% 0% 10% 0%;
+	font-weight: 200;
+}
+
+.form-waiting-message{
+	text-align: center;
+	margin: 10% 10% 10% 10%;
+	font-weight: 200;
+}
+
+.waiting-icon{
+	margin-top: 15%;
+}
+
+.form-waiting-heading em{
+	color: #1a1a1a;
+	font-weight: bold;
+	font-size: 110%
+}
+
+.form-invite-heading{
+	font-weight: 200;
+	text-align: center;
+	margin: 10% 0% 10% 0%;
+}
+
+input[type="invite"]
+{
+    background: transparent;
+    border: none;
+  	border-bottom: 1px solid white;
+  	box-shadow: hidden;
+  	color: black;
+  	display: initial;
+  	width: 150%;
 }
