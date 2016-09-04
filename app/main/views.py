@@ -28,6 +28,21 @@ def pref2():
 @main.route('/create')
 def create():
     return render_template('create.html')
+@main.route('/invite')
+def invite():
+    return render_template('invite.html')
+@main.route('waiting')
+def waiting():
+    return render_template('waiting.html')
+@main.route('results')
+def results():
+    return render_template('results.html')
+@main.route('inviteContacts')
+def inviteContacts():
+    res = request.json
+    friend1 = str(res['friend1'])
+    friend2 = str(res['friend2'])
+    friend3 = str(res['friend3'])
 @main.route('/newevent', methods = ['POST'])
 def newevent():
     res = request.json

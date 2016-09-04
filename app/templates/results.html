@@ -98,7 +98,7 @@
   			</div>
 		</div>
 		
-		<center><a href="#" class="btn btn-info btn-lg btn-primary btn-block btn-color" role="button">Submit</a></center>
+		<center><a href="invite" id = "submit" class="btn btn-info btn-lg btn-primary btn-block btn-color" role="button">Submit</a></center>
       </form>
 
     </div> <!-- /container -->
@@ -106,5 +106,27 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type= text/javascript>
+		$("a#submit").click(function() {
+			var data = {};
+			data.FirstName = document.getElementById("inputFirstName").value;
+			data.LastName = document.getElementById("inputLastName").value;
+            data.Email = document.getElementById("inputEmail").value;
+            data.Password = document.getElementById("inputPassword").value;
+            data.PhoneNumber = document.getElementById("inputNumber").value;
+		$.ajax({
+			type: "POST",
+			url: "/home1",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
   </body>
 </html>

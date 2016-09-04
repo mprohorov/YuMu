@@ -66,13 +66,13 @@
         <h4 class="form-invite-heading">Send an invite to friends by text!</h4>
         <h5 class="form-invite-heading">Just submit their phone numbers to include them in all the fun</h5>
 		<div class="invite">
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend1" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	<br>
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend2" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	<br>
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend3" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	
-		<a href="/home" id = "submit" class="btn btn-info btn-lg btn-primary btn-block" role="button">Invite Friends</a>
+		<a href="home" id = "submit" class="btn btn-info btn-lg btn-primary btn-block" role="button">Invite Friends</a>
       </form>
 
     </div> <!-- /container -->
@@ -80,5 +80,25 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type= text/javascript>
+		$("a#submit").click(function() {
+			var data = {};
+			data.friend1 = document.getElementById("friend1").value;
+			data.friend2 = document.getElementById("friend2").value;
+            data.friend3 = document.getElementById("friend3").value;
+		$.ajax({
+			type: "POST",
+			url: "/inviteContacts",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
   </body>
 </html>
