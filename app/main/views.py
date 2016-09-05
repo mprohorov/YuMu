@@ -72,14 +72,6 @@ def signin():
                 error = 'Invalid username or password.'
     return render_template('login.html', form=form, error=error)
 '''''
-
-@main.route('/_add_numbers', methods = ['POST'])
-def add_numbers():
-    res = request.json
-    print res
-    number1 = int(res['number1'])
-    number2 = int(res['number2'])
-    return jsonify(res = (number1 + number2))
 @main.route('/home1', methods = ['POST'])
 def home1():
     res = request.json

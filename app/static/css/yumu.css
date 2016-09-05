@@ -8,7 +8,7 @@ body{
     height: inherit;
     margin: 0;
     padding: 0;
-    background: linear-gradient(#99ddff, #0099e6);
+    background: linear-gradient(#99ccff, #4d94ff);
     padding-top: 10%;
     background-attachment:fixed;
 }
@@ -103,8 +103,8 @@ ul{
 .form-pref-heading{
 	text-align: center;
 	font-size: 150%;
-	margin-bottom: 60%;
-	margin-top: 2%;
+	margin-bottom: 20%;
+	margin-top: 10%;
 	font-weight: 300;
 }
 
@@ -147,7 +147,6 @@ input{
 	border-color: white;
 	width: 70%;
 }
-
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #262626;
@@ -194,10 +193,8 @@ input[type=event]{
 	text-align: center;
     color: black;
     background: none;
-    border-bottom: black;
     font-size: 300%;
     height:inherit;
-	border: 1px solid black;
 }
 
 .dropdown-menu{
@@ -252,11 +249,9 @@ input:-ms-input-placeholder {
 input[type="signin"]
 {
     background: transparent;
-    border: none;
-  	border-bottom: 1px solid white;
   	box-shadow: hidden;
   	color: black;
-
+	border: 1px solid white;
 }
 
 .form-results-heading{
@@ -416,11 +411,36 @@ p.deco{
 
 input[type="invite"]
 {
+	background: transparent;
+	box-shadow: hidden;
+	color: black;
+	border: 1px solid white;
+}
+input[type="event"]
+{
     background: transparent;
-    border: none;
-  	border-bottom: 1px solid white;
   	box-shadow: hidden;
   	color: black;
-  	display: initial;
-  	width: 150%;
+	border: 1px solid white;
+}
+input[type="datepicker"]
+{
+    background: transparent;
+  	box-shadow: hidden;
+  	color: black;
+	border: 1px solid white;
+}
+input[type="deadlinepicker"]
+{
+    background: transparent;
+  	box-shadow: hidden;
+  	color: black;
+	border: 1px solid white;
+}
+input[type="max-cash"]
+{
+    background: transparent;
+  	box-shadow: hidden;
+  	color: black;
+	border: 1px solid white;
 }
