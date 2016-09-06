@@ -22,6 +22,9 @@ def signin():
 @main.route('/home')
 def home():
     return render_template('home.html')
+@main.route('/home/<name>')
+def user_home(name):
+    return render_template('home.html', name = name)
 @main.route('/pref2')
 def pref2():
     return render_template('prefs-two.html')
@@ -31,13 +34,13 @@ def create():
 @main.route('/invite')
 def invite():
     return render_template('invite.html')
-@main.route('waiting')
+@main.route('/waiting')
 def waiting():
     return render_template('waiting.html')
-@main.route('results')
+@main.route('/results')
 def results():
     return render_template('results.html')
-@main.route('inviteContacts')
+@main.route('/inviteContacts')
 def inviteContacts():
     res = request.json
     friend1 = str(res['friend1'])

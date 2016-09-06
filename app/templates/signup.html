@@ -57,7 +57,7 @@
         	<input type="phone-number" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required>
         </div>
 
-        <a href="home" class="btn btn-info btn-lg btn-primary btn-block" role="button" id = "submit" style = "color:white;">Sign Up</a>
+        <input type="submit" class="btn btn-info btn-lg btn-primary btn-block btn-color" value="Invite">
         <p class="terms">By sign in, I accept <em>Terms of Service</em> and <em>Privacy Policy</em></p>
       </form>
 
@@ -67,7 +67,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type= text/javascript>
-		$("a#submit").click(function() {
+		$("input#submit").click(function() {
 			var data = {};
 			data.FirstName = document.getElementById("inputFirstName").value;
 			data.LastName = document.getElementById("inputLastName").value;
@@ -86,6 +86,10 @@
 				$('#result').html('I failed')
 			}
 		})
+            var firstName = document.getElementById("inputFirstName").value;
+            var lastName = document.getElementById("inputLastName").value;
+            var name = firstName + lastName;
+            window.location.href= '/home/' + name;
 		})
 	</script>
   </body>
