@@ -15,8 +15,8 @@
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/yumu.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/yumu.css">
 	
 	<!-- Lobster font import -->
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -41,7 +41,7 @@
 				<!-- add header -->
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">
-						<img alt="Brand" src="icon.png" height="130%" width="inherit">
+						<img alt="Brand" src="static/images/icon.png" height="130%" width="inherit">
 				  	</a>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
 						<span class="sr-only">Toggle navigation</span>
@@ -63,16 +63,16 @@
 
       <form class="form-sigin">
 		
-        <h4 class="form-invite-heading">Send an invite to friends by text!</h4>
-        <h5 class="form-invite-heading">Just submit their phone numbers to include them in all the fun</h5>
+        <h4 class="form-invite-heading" style = "color:white;">Send an invite to friends by text!</h4>
+        <h5 class="form-invite-heading" style = "color:white;">Just submit their phone numbers to include them in all the fun</h5>
 		<div class="invite">
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend1" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	<br>
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend2" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	<br>
-        	<label><input type="invite" id="inputNumber" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
+        	<label><input type="invite" id="friend3" class="form-control" placeholder="Phone Number (e.g. ###-###-####)" required></label>
         	
-        <input type="submit" class="btn btn-info btn-lg btn-primary btn-block btn-color" value="Invite">
+		<a href="home" id = "submit" class="btn btn-info btn-lg btn-primary btn-block" role="button" style = "color:white;">Invite Friends</a>
       </form>
 
     </div> <!-- /container -->
@@ -80,5 +80,25 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type= text/javascript>
+		$("a#submit").click(function() {
+			var data = {};
+			data.friend1 = document.getElementById("friend1").value;
+			data.friend2 = document.getElementById("friend2").value;
+            data.friend3 = document.getElementById("friend3").value;
+		$.ajax({
+			type: "POST",
+			url: "/inviteContacts",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
   </body>
 </html>

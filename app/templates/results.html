@@ -15,8 +15,8 @@
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/yumu.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/yumu.css">
 	
 	<!-- Lobster font import -->
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -35,11 +35,35 @@
   <body>
 
     <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<!-- add header -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img alt="Brand" src="static/images/icon.png" height="130%" width="inherit">
+				  	</a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- menu items -->
+				<div class="collapse navbar-collapse" id="navbar1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>   Home</a></li>
+						<li><a href="create.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>   Create an Event</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>    My Profile</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
       <form class="form-greeting">
       	<div class="row">
-  			<h1 class="form-results-heading">Here's what we came up with</h1>
-  			<h1 class="form-results-dir">Check at least <em>3</em> outing ideas you like.</h1>
+  			<h1 class="form-results-heading" style = "color:white;">Here's what we came up with</h1>
+  			<h1 class="form-results-dir" style = "color:white;">Check at least <em>3</em> outing ideas you like.</h1>
   			
   			<div class="op">
   				<h4 class="op">Peak</h4>
@@ -98,7 +122,7 @@
   			</div>
 		</div>
 		
-		<center><a href="#" class="btn btn-info btn-lg btn-primary btn-block btn-color" role="button">Submit</a></center>
+		<center><a href="invite" id = "submit" class="btn btn-info btn-lg btn-primary btn-block btn-color" role="button">Submit</a></center>
       </form>
 
     </div> <!-- /container -->
@@ -106,5 +130,27 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type= text/javascript>
+		$("a#submit").click(function() {
+			var data = {};
+			data.FirstName = document.getElementById("inputFirstName").value;
+			data.LastName = document.getElementById("inputLastName").value;
+            data.Email = document.getElementById("inputEmail").value;
+            data.Password = document.getElementById("inputPassword").value;
+            data.PhoneNumber = document.getElementById("inputNumber").value;
+		$.ajax({
+			type: "POST",
+			url: "/home1",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			success: function(data){
+				var res = data['name']
+				$('.container').html(res)},
+			error: function(data){
+				$('#result').html('I failed')
+			}
+		})
+		})
+	</script>
   </body>
 </html>

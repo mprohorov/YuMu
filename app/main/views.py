@@ -31,6 +31,21 @@ def pref2():
 @main.route('/create.html')
 def create():
     return render_template('create.html')
+@main.route('/invite')
+def invite():
+    return render_template('invite.html')
+@main.route('waiting')
+def waiting():
+    return render_template('waiting.html')
+@main.route('results')
+def results():
+    return render_template('results.html')
+@main.route('inviteContacts')
+def inviteContacts():
+    res = request.json
+    friend1 = str(res['friend1'])
+    friend2 = str(res['friend2'])
+    friend3 = str(res['friend3'])
 @main.route('/newevent', methods = ['POST'])
 def newevent():
     res = request.json
@@ -68,14 +83,6 @@ def signin():
                 error = 'Invalid username or password.'
     return render_template('login.html', form=form, error=error)
 '''''
-
-@main.route('/_add_numbers', methods = ['POST'])
-def add_numbers():
-    res = request.json
-    print res
-    number1 = int(res['number1'])
-    number2 = int(res['number2'])
-    return jsonify(res = (number1 + number2))
 @main.route('/home1', methods = ['POST'])
 def home1():
     res = request.json
