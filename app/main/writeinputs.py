@@ -7,8 +7,8 @@ def createAccount(email, phone, fname, lname, pw):
     dbconnect.session.add(act)
     dbconnect.session.commit()
 
-def createEvent(date, deadline, title):
-    event = models.event(ymdh=date, deadline=deadline, title=title)
+def createEvent(user_id, date, deadline, title):
+    event = models.event(user_id=user_id, ymdh=date, deadline=deadline, title=title)
     dbconnect.session.add(event)
     dbconnect.session.commit()
 

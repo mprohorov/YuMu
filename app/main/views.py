@@ -1,6 +1,6 @@
 import flask_login
 from flask import render_template, request, jsonify, redirect, url_for
-
+from datetime import datetime
 from app.main import writeinputs
 from . import main
 from yelpquery import get_results
@@ -16,6 +16,9 @@ def pref1():
 @main.route('/signup')
 def signup():
     return render_template('signup.html')
+@main.route('/results')
+def results():
+    return render_template('results.html')
 @main.route('/signin')
 def signin():
     return render_template('signin.html')
@@ -25,7 +28,7 @@ def home():
 @main.route('/pref2')
 def pref2():
     return render_template('prefs-two.html')
-@main.route('/create')
+@main.route('/create.html')
 def create():
     return render_template('create.html')
 @main.route('/newevent', methods = ['POST'])
@@ -33,12 +36,11 @@ def newevent():
     res = request.json
     date = str(res['Date'])
     title = str(res['Title'])
-<<<<<<< Updated upstream
     deadline = str(res['Deadline'])
     invitedFriends = []
     for item in res['InvitedFriends']:
         invitedFriends.append(str(item))
-    writeinputs.createEvent(date, title, deadline)
+    writeinputs.createEvent(1, date, deadline, title)
 '''''
 =======
     invitedFriends = []
@@ -107,6 +109,7 @@ def pref1info():
         if str(res[item]) == "true":
             category += item
     writeinputs.enterPrefs1(latitude, longitude, category)
+
 @main.route('/pref2info', methods = ['POST'])
 def pref2info():
     res = request.json

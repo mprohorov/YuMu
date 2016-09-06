@@ -47,8 +47,8 @@ CREATE TABLE event_proposal(
 );
 
 CREATE TABLE user_preferences(
-  event_id INT NOT NULL PRIMARY KEY,
-  user_id INT NOT NULL,
+  FOREIGN KEY (event_id) REFERENCES event_proposal(event_id)
+  FOREIGN KEY (user_id) REFERENCES account_settings(user_id),
   min_budget INT,
   max_budget INT,
   promo_code TINYINT,
