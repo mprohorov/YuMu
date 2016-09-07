@@ -38,9 +38,12 @@ def create():
 @main.route('/invite')
 def invite():
     return render_template('invite.html')
-@main.route('/waiting')
-def waiting():
-    return render_template('waiting.html')
+@main.route('/waiting1')
+def waiting1():
+    return render_template('waiting1.html')
+@main.route('/waiting2')
+def waiting2():
+    return render_template('waiting2.html')
 @main.route('/results')
 def results():
     return render_template('results.html')
