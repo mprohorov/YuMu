@@ -11,7 +11,14 @@ def createEvent(user_id, date, deadline, title):
     event = models.event(user_id=user_id, ymdh=date, deadline=deadline, title=title)
     dbconnect.session.add(event)
     dbconnect.session.commit()
-
+def addFriends(pn1, pn2, pn3):
+    friend1 = models.friendsInvited(phone_number=pn1)
+    dbconnect.session.add(friend1)
+    friend2 = models.friendsInvited(phone_number=pn2)
+    dbconnect.session.add(friend2)
+    friend3 = models.friendsInvited(phone_number=pn3)
+    dbconnect.session.add(friend3)
+    dbconnect.session.commit()
 def enterPrefs1(lat, long, cat):
     prefs = models.preferences(latitude=lat, longitude=long, category=cat)
     dbconnect.session.add(prefs)

@@ -1,5 +1,6 @@
 import flask_login
 from flask import render_template, request, jsonify, redirect, url_for
+from sendmail import send, testsend, sendFromDB
 from datetime import datetime
 from app.main import writeinputs
 from . import main
@@ -16,9 +17,6 @@ def pref1():
 @main.route('/signup')
 def signup():
     return render_template('signup.html')
-@main.route('/results')
-def results():
-    return render_template('results.html')
 @main.route('/signin')
 def signin():
     return render_template('signin.html')
@@ -28,24 +26,28 @@ def home():
 @main.route('/pref2')
 def pref2():
     return render_template('prefs-two.html')
-@main.route('/create.html')
+@main.route('/create')
 def create():
     return render_template('create.html')
 @main.route('/invite')
 def invite():
     return render_template('invite.html')
-@main.route('waiting')
+@main.route('/waiting')
 def waiting():
     return render_template('waiting.html')
-@main.route('results')
+@main.route('/results')
 def results():
     return render_template('results.html')
-@main.route('inviteContacts')
+@main.route('/inviteContacts', methods = ['POST'])
 def inviteContacts():
     res = request.json
-    friend1 = str(res['friend1'])
-    friend2 = str(res['friend2'])
-    friend3 = str(res['friend3'])
+    pn1 = str(res['friend1'])
+    pn2 = str(res['friend2'])
+    pn3 = str(res['friend3'])
+    #writeinputs.addFriends(pn1, pn2, pn3)
+    #sendFromDB(dbconnect.session.query(models.friendsInvited.phone_number))
+    send(pn1, pn2, pn3)
+
 @main.route('/newevent', methods = ['POST'])
 def newevent():
     res = request.json

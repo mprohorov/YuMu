@@ -38,6 +38,9 @@ class event(Base):
     __table__ = Base.metadata.tables['event_proposal']
     preferences = relationship("preferences")
 
+class friendsInvited(Base):
+    __table__ = Base.metadata.tables['friends_invited']
+
 
 
 @__init__.lm.user_loader
