@@ -11,6 +11,9 @@ from app import models
 @main.route('/')
 def index():
     return render_template('index.html')
+@main.route('/final')
+def final():
+    return render_template('final.html')
 @main.route('/pref1')
 def pref1():
     return render_template('prefs-one.html')
