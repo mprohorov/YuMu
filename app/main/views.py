@@ -41,15 +41,15 @@ def waiting():
 @main.route('/results')
 def results():
     return render_template('results.html')
-@main.route('/inviteContacts')
+@main.route('/inviteContacts', methods = ['POST'])
 def inviteContacts():
     res = request.json
-    pn1 = str(res['friend1'])
-    pn2 = str(res['friend2'])
-    pn3 = str(res['friend3'])
+    friend1 = str(res['friend1'])
+    friend2 = str(res['friend2'])
+    friend3 = str(res['friend3'])
     #writeinputs.addFriends(pn1, pn2, pn3)
     #sendFromDB(dbconnect.session.query(models.friendsInvited.phone_number))
-    send(pn1, pn2, pn3)
+    send(friend1, friend2, friend3)
 
 @main.route('/newevent', methods = ['POST'])
 def newevent():
